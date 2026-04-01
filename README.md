@@ -82,11 +82,11 @@ The background readings are stored in the `background_readings/` folder and prov
 
 | Title | Type | Description | File | Source |
 |------|------|------------|------|--------|
-| MovieLens Dataset (GroupLens) | Dataset Documentation | Official dataset description and source information for MovieLens. | [PDF](background_readings/movielens_dataset.pdf) | [Link](https://grouplens.org/datasets/movielens/) |
-| Movie Recommender Systems: Concepts, Methods, Challenges | Research Paper | Overview of major recommender system methods and challenges. | [PDF](background_readings/recommender_systems_paper.pdf) | [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC9269752/) |
-| Movie Recommendation with Machine Learning | Article | Explains how movie recommendation systems can be built with machine learning. | [PDF](background_readings/movie_ml_article.pdf) | [Link](https://labelyourdata.com/articles/movie-recommendation-with-machine-learning) |
-| Collaborative Filtering: A Simple Introduction | Article | Beginner-friendly explanation of collaborative filtering. | [PDF](background_readings/collaborative_filtering_intro.pdf) | [Link](https://builtin.com/data-science/collaborative-filtering-recommender-system) |
-| Collaborative Filtering: How to Build a Recommender System | Tutorial | Practical guide to implementing collaborative filtering. | [PDF](background_readings/collaborative_filtering_tutorial.pdf) | [Link](https://redis.io/blog/collaborative-filtering-how-to-build-a-recommender-system/) |
+| MovieLens Dataset (GroupLens) | Dataset Documentation | Official dataset description and source information for MovieLens. | [PDF](background_readings/MovieLens.pdf) | [Link](https://grouplens.org/datasets/movielens/) |
+| Movie Recommender Systems: Concepts, Methods, Challenges | Research Paper | Overview of major recommender system methods and challenges. | [PDF](background_readings/Movie%20Recommender%20Systems.pdf) | [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC9269752/) |
+| Movie Recommendation with Machine Learning | Article | Explains how movie recommendation systems can be built with machine learning. | [PDF](background_readings/What%20Is%20a%20Movie%20Recommendation%20System%20in%20ML.pdf) | [Link](https://labelyourdata.com/articles/movie-recommendation-with-machine-learning) |
+| Collaborative Filtering: A Simple Introduction | Article | Beginner-friendly explanation of collaborative filtering. | [PDF](background_readings/Collaborative%20Filtering_A%20Simple%20Introduction.pdf) | [Link](https://builtin.com/data-science/collaborative-filtering-recommender-system) |
+| Collaborative Filtering: How to Build a Recommender System | Tutorial | Practical guide to implementing collaborative filtering. | [PDF](background_readings/Collaborative%20filtering_How%20to%20build%20a%20recommender%20system.pdf) | [Link](https://redis.io/blog/collaborative-filtering-how-to-build-a-recommender-system/) |
 ---
 
 ## Data Creation
