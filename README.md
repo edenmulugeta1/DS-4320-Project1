@@ -18,7 +18,7 @@ unb6ny
 [View Press Release](press_release/press_release.md)
 
 ## Data
-[View UVA OneDrive Folder](INSERT_ONEDRIVE_LINK_HERE)
+[View UVA OneDrive Folder](https://myuva-my.sharepoint.com/:f:/g/personal/unb6ny_virginia_edu/IgBo51GznZw8TL-g7bBbxysOAZg3nQkwR7IbgV9glyXy-t8?e=zxWWiI)
 
 ## Pipeline
 [View Jupyter Notebook](pipeline/project1_pipeline.ipynb)  
@@ -33,9 +33,11 @@ MIT License
 ## Problem Definition
 
 ### Initial General Problem
-Recommending content
+Recommending content (e.g., Netflix)
 
 ### Refined Specific Problem
+How can we use user ratings and interactions to generate personalized movie recommendations that better match individual preferences? 
+
 This project focuses on building a relational movie recommendation dataset that supports personalized movie suggestions using user ratings, tags, and movie metadata from the MovieLens dataset. The goal is to identify movies that a user has not yet seen but is likely to enjoy based on patterns in their past interactions.
 
 ### Refinement Rationale
@@ -52,6 +54,7 @@ How Personalized Movie Recommendations Can Improve What You Watch
 ---
 
 ## Domain Exposition
+This project is in the domain of recommender systems, which are used by platforms like Netflix and Spotify to suggest content to users. These systems analyze user behavior, such as ratings or viewing history, to predict what users might like.
 
 ### Terminology
 
@@ -67,6 +70,9 @@ How Personalized Movie Recommendations Can Improve What You Watch
 | Content-Based Filtering | A method that recommends items similar to those a user liked before. |
 | User Preference | Patterns in a user’s ratings or behavior that show what they tend to like. |
 | Metric | A value used to measure performance, such as average rating or number of ratings. |
+| User-Movie Matrix | A table that shows users as rows, movies as columns, and ratings as values. |
+| Cosine Similarity | A measure used to calculate how similar two users are based on their ratings. |
+| Recommendation Score | A value that shows how strongly a movie is recommended to a user. |
 
 ### Domain Description
 This project belongs to the domain of recommender systems, which are widely used by platforms such as Netflix, Spotify, and Amazon to personalize user experiences. These systems analyze user behavior, such as ratings, interactions, and preferences, to suggest content a user is likely to enjoy. In this project, the focus is on movie recommendation using the MovieLens dataset, where ratings and tags help reveal patterns in user preferences. This makes the domain practical, relevant, and well suited for showing how relational data and machine learning can work together in a real-world application.
@@ -74,14 +80,13 @@ This project belongs to the domain of recommender systems, which are widely used
 ### Background Reading
 The background readings are stored in the `background_readings/` folder and provide context about recommendation systems, collaborative filtering, and the MovieLens dataset.
 
-| Title | Type | Description | Link |
-|------|------|------------|------|
-| MovieLens Dataset (GroupLens) | Dataset Documentation | Official dataset description and source information for MovieLens. | [File](background_readings/movielens_dataset.pdf) |
-| Movie Recommender Systems: Concepts, Methods, Challenges | Research Paper | Overview of major recommender system methods and challenges. | [File](background_readings/recommender_systems_paper.pdf) |
-| Movie Recommendation with Machine Learning | Article | Explains how movie recommendation systems can be built with machine learning. | [File](background_readings/movie_ml_article.pdf) |
-| Collaborative Filtering: A Simple Introduction | Article | Beginner-friendly explanation of collaborative filtering. | [File](background_readings/collaborative_filtering_intro.pdf) |
-| Collaborative Filtering: How to Build a Recommender System | Tutorial | Practical guide to implementing collaborative filtering. | [File](background_readings/collaborative_filtering_tutorial.pdf) |
-
+| Title | Type | Description | File | Source |
+|------|------|------------|------|--------|
+| MovieLens Dataset (GroupLens) | Dataset Documentation | Official dataset description and source information for MovieLens. | [PDF](background_readings/movielens_dataset.pdf) | [Link](https://grouplens.org/datasets/movielens/) |
+| Movie Recommender Systems: Concepts, Methods, Challenges | Research Paper | Overview of major recommender system methods and challenges. | [PDF](background_readings/recommender_systems_paper.pdf) | [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC9269752/) |
+| Movie Recommendation with Machine Learning | Article | Explains how movie recommendation systems can be built with machine learning. | [PDF](background_readings/movie_ml_article.pdf) | [Link](https://labelyourdata.com/articles/movie-recommendation-with-machine-learning) |
+| Collaborative Filtering: A Simple Introduction | Article | Beginner-friendly explanation of collaborative filtering. | [PDF](background_readings/collaborative_filtering_intro.pdf) | [Link](https://builtin.com/data-science/collaborative-filtering-recommender-system) |
+| Collaborative Filtering: How to Build a Recommender System | Tutorial | Practical guide to implementing collaborative filtering. | [PDF](background_readings/collaborative_filtering_tutorial.pdf) | [Link](https://redis.io/blog/collaborative-filtering-how-to-build-a-recommender-system/) |
 ---
 
 ## Data Creation
@@ -92,7 +97,7 @@ The raw data for this project comes from the MovieLens “latest small” datase
 This raw data was used as the foundation for constructing a secondary relational dataset, D1, for this project. The source files are stored in the `data/raw/` folder, and the transformed output files are stored in the `data/processed/` folder.
 
 ### Data Construction Process
-To construct D1, the raw MovieLens data was cleaned and transformed into a normalized relational structure. A `users` table was created by extracting the unique user IDs from the ratings and tags tables. The `movies` table was enhanced by extracting release year from the movie title field.
+To construct the dataset, the raw MovieLens data was cleaned and transformed into a normalized relational structure. A `users` table was created by extracting the unique user IDs from the ratings and tags tables. The `movies` table was enhanced by extracting release year from the movie title field.
 
 The original `genres` field in `movies.csv` contained multiple values in one column separated by `|`, which is not ideal in a relational design. To normalize this field, I created a separate `genres` table containing unique genre values and a `movie_genres` table to represent the many-to-many relationship between movies and genres.
 
@@ -125,19 +130,19 @@ Several judgment calls were made during construction. The genres column was norm
 ### Schema (ER Diagram)
 The dataset follows a relational model with seven tables: `users`, `movies`, `ratings`, `tags`, `links`, `genres`, and `movie_genres`. The ER diagram below shows the logical structure of the dataset.
 
-![ER Diagram](metadata/er_diagram.png)
+![ER Diagram](figures/er_diagram.drawio.png)
 
 ### Data Tables
 
 | Table Name | Description | Link |
 |-----------|------------|------|
-| users | Contains unique user identifiers extracted from ratings and tags data. | [CSV](data/processed/users.csv) |
-| movies | Contains movie metadata including title and release year. | [CSV](data/processed/movies.csv) |
-| ratings | Contains user ratings for movies. | [CSV](data/processed/ratings.csv) |
-| tags | Contains user-generated tags describing movies. | [CSV](data/processed/tags.csv) |
-| links | Contains external identifiers linking movies to IMDb and TMDb. | [CSV](data/processed/links.csv) |
-| genres | Contains unique genre categories. | [CSV](data/processed/genres.csv) |
-| movie_genres | Bridge table linking movies to genres in a many-to-many relationship. | [CSV](data/processed/movie_genres.csv) |
+| users | Contains unique user identifiers extracted from ratings and tags. | [users.csv](data/processed/users.csv) |
+| movies | Contains movie metadata including title and release year. | [movies.csv](data/processed/movies.csv) |
+| ratings | Contains user ratings for movies. | [ratings.csv](data/processed/ratings.csv) |
+| tags | Contains user-generated tags describing movies. | [tags.csv](data/processed/tags.csv) |
+| links | Contains external identifiers linking movies to IMDb and TMDb. | [links.csv](data/processed/links.csv) |
+| genres | Contains unique genre categories. | [genres.csv](data/processed/genres.csv) |
+| movie_genres | Bridge table linking movies to genres (many-to-many relationship). | [movie_genres.csv](data/processed/movie_genres.csv) |
 
 ### Data Dictionary
 
