@@ -1,15 +1,15 @@
 # How Personalized Movie Recommendations Can Improve What You Watch
 
 ## Hook
-Have you ever spent more time searching for a movie than actually watching one? With so many choices available, it can be hard to decide what to watch, and many people end up picking something randomly or giving up altogether.
+Have you ever spent more time searching for a movie than actually watching one? With so many options available, it can feel overwhelming to choose, and a lot of people end up picking something random or not watching anything at all.
 
 ## Problem Statement
-Streaming platforms provide huge libraries of content, but finding the right movie can still be frustrating. Many users spend too much time browsing or end up choosing movies that do not match their preferences. Although some platforms already use recommendation systems, not all recommendations feel personal or easy to understand. The specific problem in this project is how to use user ratings, tags, and movie information to better identify what a person is likely to enjoy.
+Streaming platforms offer thousands of movies, but finding the right one can still be frustrating. Many users spend too much time scrolling or end up choosing movies they don’t really enjoy. Even though platforms give recommendations, they don’t always feel personal or easy to understand. The main problem this project looks at is how we can better use past user activity, like ratings and interactions, to recommend movies that actually match someone’s preferences.
 
 ## Solution Description
-This project builds a movie recommendation system using user ratings and movie metadata from the MovieLens dataset. First, a baseline model recommends movies that are popular and highly rated overall. Then, a collaborative filtering model improves personalization by finding users with similar rating patterns and recommending movies they liked. This creates recommendations that are more tailored to an individual user instead of giving everyone the same list.
+This project builds a movie recommendation system that uses what users have liked in the past to suggest new movies. First, it recommends movies that are generally popular and highly rated by many people. Then, it improves those recommendations by finding users with similar tastes and suggesting movies they enjoyed. This makes the recommendations more personal and more likely to match what a specific user would want to watch.
 
 ## Chart
-The chart below shows the top recommended movies for a selected user based on the collaborative filtering model. The recommendation score reflects how often similar users rated these movies highly, which helps identify movies the target user may also enjoy.
+The chart below shows the top movie recommendations for a selected user. The ranking is based on how often people with similar tastes liked those movies. This helps highlight which movies the user is most likely to enjoy.
 
 ![Collaborative Filtering Recommendations](../figures/collaborative_filtering_recommendations.png)
