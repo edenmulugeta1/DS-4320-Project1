@@ -12,7 +12,7 @@ Eden Mulugeta
 unb6ny
 
 ## DOI
-[\[DOI\]](https://doi.org/10.5281/zenodo.19372681)
+[DOI](https://doi.org/10.5281/zenodo.19372681)
 
 ## Press Release
 [View Press Release](press_release/press_release.md)
